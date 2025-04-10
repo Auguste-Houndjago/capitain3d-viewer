@@ -358,7 +358,7 @@ export default function ModelControls({
             <div className="space-y-2">
               <div className="flex items-center justify-between">
                 <Label>Échelle du modèle</Label>
-                <span className="text-xs text-gray-500">{scale.toFixed(1)}x</span>
+                <span className="text-xs text-gray-500"> {scale && scale.toFixed(1)} x</span>
               </div>
               <Slider
                 value={[scale]}
