@@ -63,6 +63,7 @@ export default function Model({
   useEffect(() => {
     useGLTF.preload(url)
     return () => {
+      // eslint-disable-next-line react-hooks/rules-of-hooks
       const gltf = useGLTF(url)
       gltf.scene.traverse((child) => {
         if (child instanceof THREE.Mesh) {
