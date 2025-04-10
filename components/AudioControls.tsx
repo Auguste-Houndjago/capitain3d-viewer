@@ -20,6 +20,14 @@ export default function AudioControls() {
     }
   }, [volume])
 
+  // Effet pour gérer la lecture quand currentTrack change
+  useEffect(() => {
+    if (audioRef.current && currentTrack) {
+      audioRef.current.play()
+      setIsPlaying(true)
+    }
+  }, [currentTrack])
+
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -32,14 +40,14 @@ export default function AudioControls() {
 
   const handleTrackChange = (url: string) => {
     setCurrentTrack(url)
-    setIsPlaying(true)
   }
 
   const togglePlay = () => {
     if (!currentTrack && tracks.length > 0) {
       setCurrentTrack(tracks[0].url)
+    } else {
+      setIsPlaying(!isPlaying)
     }
-    setIsPlaying(!isPlaying)
   }
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
