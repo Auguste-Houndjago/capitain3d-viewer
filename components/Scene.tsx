@@ -125,6 +125,7 @@ export default function Scene() {
     setShowControls(prev => !prev)
   }, [])
 
+//c
   return (
     <div className="relative bg-black h-screen">
       <LoadingScreen started={started} onStarted={() => setStarted(true)} />
@@ -142,7 +143,7 @@ export default function Scene() {
       <Canvas ref={canvasRef} gl={{ antialias: true, preserveDrawingBuffer: true }} dpr={[1, 1.5]} className="h-screen">
         {/* Lumières */}
         <ambientLight intensity={0.8} />
-        <directionalLight position={[3, 5, 5]} intensity={1} castShadow />
+        <directionalLight position={[3, 5, 5]} intensity={1.2} castShadow />
 
         {/* Configuration de la caméra */}
         <CameraSetup
